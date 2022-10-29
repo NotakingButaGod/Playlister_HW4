@@ -12,7 +12,7 @@ export const AuthActionType = {
     LOGOUT_USER: "LOGOUT_USER",
     REGISTER_USER: "REGISTER_USER"
 }
-
+// 日天
 function AuthContextProvider(props) {
     const [auth, setAuth] = useState({
         user: null,
