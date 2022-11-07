@@ -129,7 +129,7 @@ body {
   position: absolute;
   left: 0%;
   top: 0%;
-  width: 100%;
+  width: smaller;
   height: 10%;
   text-align: center;
   font-size: 24pt;
@@ -280,6 +280,7 @@ input {
   opacity: 0;
   transition: all 0.35s ease-in;
   font-family: var(--font-primary);
+  
 }
 
 .modal.is-visible {
