@@ -11,11 +11,12 @@ function Statusbar() {
     const { store } = useContext(GlobalStoreContext);
     let text ="";
     if (store.currentList)
-        text = store.currentList.name;
-    return (
+        text = 
         <div id="playlister-statusbar">
-            <Typography variant="h4">{text}</Typography>
-        </div>
+        <Typography variant="h4">{store.currentList.name}</Typography>
+        </div>;
+    return (
+       text
     );
 }
 

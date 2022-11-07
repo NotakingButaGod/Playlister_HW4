@@ -8,6 +8,7 @@ const style = {
     position: 'absolute',
     top: '50%',
     left: '50%',
+    height: '10%',
     transform: 'translate(-50%, -50%)',
     width: 400,
     bgcolor: 'background.paper',
@@ -38,7 +39,7 @@ export default function MUIRemoveSongModal() {
 
     return (
         <Modal
-            open={store.listMarkedForDeletion !== null}
+            open={store.isDeleteListModalOpen !== null}
         >
             <Box sx={style}>
             <div
@@ -46,11 +47,11 @@ export default function MUIRemoveSongModal() {
         className={modalClass}
         data-animation="slideInOutLeft">
         <div className="modal-root" id='verify-remove-song-root'>
-            <div className="modal-north">
+            <div className="modal-north" style={{fontSize:"xx-large"}}>
                 Remove {songTitle}?
             </div>
             <div className="modal-center">
-                <div className="modal-center-content">
+                <div className="modal-center-content" style={{fontSize:"x-large"}}>
                     Are you sure you wish to permanently remove {songTitle} from the playlist?
                 </div>
             </div>
