@@ -70,7 +70,15 @@ function AuthContextProvider(props) {
     }
 
     auth.registerUser = async function(firstName, lastName, email, password, passwordVerify) {
-        const response = await api.registerUser(firstName, lastName, email, password, passwordVerify);      
+        let success = "success";
+        try{
+            var response = await api.registerUser(firstName, lastName, email, password, passwordVerify); 
+        }catch(error){
+            success = error.response.data.errorMessage;
+        }
+        if(success !== "success"){
+            return success;
+        }
         if (response.status === 200) {
             authReducer({
                 type: AuthActionType.REGISTER_USER,
@@ -79,11 +87,20 @@ function AuthContextProvider(props) {
                 }
             })
             history.push("/login");
+            return success;
         }
     }
 
     auth.loginUser = async function(email, password) {
-        const response = await api.loginUser(email, password);
+        let success = "success";
+        try{
+            var response = await api.loginUser(email, password);
+        }catch(error){
+            success = error.response.data.errorMessage;
+        }
+        if(success !== "success"){
+            return success;
+        }
         if (response.status === 200) {
             authReducer({
                 type: AuthActionType.LOGIN_USER,
@@ -92,6 +109,7 @@ function AuthContextProvider(props) {
                 }
             })
             history.push("/");
+            return success;
         }
     }
 

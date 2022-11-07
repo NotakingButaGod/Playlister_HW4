@@ -17,6 +17,7 @@ const HomeScreen = () => {
 
     useEffect(() => {
         store.loadIdNamePairs();
+        store.closeCurrentList();
     }, []);
 
     function handleCreateNewList() {
